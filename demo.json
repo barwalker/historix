@@ -1,0 +1,83 @@
+[
+  {
+    "id": "person_1",
+    "name": "Franklin D. Roosevelt",
+    "start": "1910/08/01",
+    "end": "1945/04/12",
+    "dependencies": "",
+    "description": "1882/01/30 – 1945/04/12",
+    "type": "person"
+  },
+  {
+    "id": "position_3",
+    "name": "New York State Senator (26th District)",
+    "start": "1911/01/01",
+    "end": "1913/03/17",
+    "dependencies": "person_1",
+    "description": "",
+    "type": "position"
+  },
+  {
+    "id": "position_4",
+    "name": "Assistant Secretary of the Navy",
+    "start": "1913/03/17",
+    "end": "1920/08/06",
+    "dependencies": "person_1",
+    "description": "xxxx",
+    "type": "position"
+  },
+  {
+    "id": "position_5",
+    "name": "Governor of New York",
+    "start": "1929/01/01",
+    "end": "1932/12/31",
+    "dependencies": "person_1",
+    "description": "",
+    "type": "position"
+  },
+  {
+    "id": "position_6",
+    "name": "President of the United States",
+    "start": "1933/03/04",
+    "end": "1945/04/12",
+    "dependencies": "person_1",
+    "description": "",
+    "type": "position"
+  },
+  {
+    "id": "person_2",
+    "name": "Franklin D. Roosevelt Jr.",
+    "start": "1948/12/17",
+    "end": "1966/05/11",
+    "dependencies": "person_1",
+    "description": "",
+    "type": "person"
+  },
+  {
+    "id": "position_7",
+    "name": "U.S. Representative (New York’s 20th district)",
+    "start": "1949/05/17",
+    "end": "1955/01/03",
+    "dependencies": "person_2",
+    "description": "",
+    "type": "position"
+  },
+  {
+    "id": "position_8",
+    "name": "Under Secretary of Commerce",
+    "start": "1963/03/26",
+    "end": "1965/05/16",
+    "dependencies": "person_2",
+    "description": "",
+    "type": "position"
+  },
+  {
+    "id": "position_9",
+    "name": "Chairman of the Equal Employment Opportunity Commission (EEOC)",
+    "start": "1965/05/26",
+    "end": "1966/05/11",
+    "dependencies": "person_2",
+    "description": "",
+    "type": "position"
+  }
+]

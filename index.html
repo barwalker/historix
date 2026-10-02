@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gantt – Willow layout</title>
+    <link rel="stylesheet" href="src/styles/gantt.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="willow">
+
+    <div class="toolbar">
+        <select id="project-select" class="select" aria-label="Project"></select>
+        <button type="button" id="btn-save" class="btn">💾 Save</button>
+        <button type="button" id="btn-rename" class="btn">✎ Rename</button>
+        <button type="button" id="btn-delete-project" class="btn">🗑 Delete</button>
+        <span class="spacer"></span>
+        <input type="file" id="csv-file-input" accept=".csv" hidden>
+        <button type="button" id="btn-import-csv" class="btn">📥 Import CSV</button>
+        <button type="button" id="btn-new-item" class="btn primary">＋ New Item</button>
+        <button type="button" id="btn-reset" class="btn">Request Demo Data</button>
+    </div>
+
+    <div class="body">
+
+        <!-- LEFT GRID -->
+        <div class="grid">
+            <div class="grid-top">
+                <div class="grid-head">
+                    <div class="c-name">Person</div>
+                </div>
+                <div id="person-list"></div>
+            </div>
+
+            <div class="grid-bottom">
+                <div class="sec-head">Detail</div>
+                <div class="detail" id="item-detail">
+                    <label>Select a bar to inspect details.</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CHART: Gantt (#historix-gantt) -->
+        <div class="chart">
+            <div id="historix-gantt"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="item-modal" class="modal" hidden>
+    <div class="modal-card">
+        <h3 id="item-modal-title">New Item</h3>
+        <label>Type
+            <select id="item-type">
+                <option value="person">Person</option>
+                <option value="position">Position</option>
+            </select>
+        </label>
+        <label>ID
+            <input id="item-id" type="text" readonly>
+        </label>
+        <label>Name
+            <input id="item-name" type="text">
+        </label>
+        <label>Description
+            <input id="item-description" type="text">
+        </label>
+        <div id="position-fields" class="position-fields">
+            <div class="two">
+                <label>Start Date
+                    <input id="item-start" type="text" placeholder="YYYY/MM/DD">
+                </label>
+                <label>End Date
+                    <input id="item-end" type="text" placeholder="YYYY/MM/DD or blank for Present">
+                </label>
+            </div>
+        </div>
+        <fieldset class="deps-fieldset">
+            <legend>Dependencies</legend>
+            <div id="item-deps" class="deps-list"></div>
+        </fieldset>
+        <p id="item-modal-error" class="modal-error" hidden></p>
+        <div class="modal-actions">
+            <button type="button" id="item-cancel" class="btn">Cancel</button>
+            <button type="button" id="item-submit" class="btn primary">Save Item</button>
+        </div>
+    </div>
+</div>
+
+<div id="csv-modal" class="modal" hidden>
+    <div class="modal-card" style="max-width: 600px;">
+        <h3>Import CSV</h3>
+        <label>Person Name
+            <input id="csv-person-name" type="text" placeholder="Enter person name">
+        </label>
+        <div style="max-height: 200px; overflow: auto; border: 1px solid var(--border); border-radius: 4px; margin-top: 10px;">
+            <table id="csv-preview-table" style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead style="background: var(--bg2); position: sticky; top: 0;">
+                    <tr>
+                        <th style="padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: left;">Position</th>
+                        <th style="padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: left;">Start</th>
+                        <th style="padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: left;">End</th>
+                    </tr>
+                </thead>
+                <tbody id="csv-preview-body">
+                </tbody>
+            </table>
+        </div>
+        <p id="csv-modal-error" class="modal-error" hidden></p>
+        <div class="modal-actions">
+            <button type="button" id="csv-cancel" class="btn">Cancel</button>
+            <button type="button" id="csv-submit" class="btn primary">Save</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+:root {
+    --bg: #fff;
+    --bg2: #f4f5f7;
+    --border: #dfe2e6;
+    --text: #2a2f36;
+    --muted: #6b7480;
+    --primary: #00ba94;
+    --row: 38px;
+    --font: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    font: 14px/1.4 var(--font);
+    color: var(--text);
+    background: var(--bg2);
+    padding: 16px
+}
+
+.willow {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 32px);
+    min-height: 460px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.willow .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+}
+
+.btn.primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff
+}
+
+.willow .select {
+    height: 32px;
+    min-width: 110px;
+    padding: 0 28px 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+}
+
+.willow .spacer {
+    flex: 1
+}
+
+.willow .body {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    min-height: 0
+}
+
+.willow .grid {
+    flex: 0 0 220px;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: 1px solid var(--border);
+}
+
+.willow .grid-top {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#person-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+}
+
+.willow .grid-bottom {
+    flex: 0 0 420px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+}
+
+.willow .sec-head {
+    flex: 0 0 auto;
+    height: var(--row);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #334155;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+}
+
+.willow .detail,
+#item-detail {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+}
+
+.willow .detail label {
+    display: block;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.willow .detail ul.detail-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.willow .field {
+    margin-top: 4px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    font-size: 13px;
+}
+
+.willow .two {
+    display: flex;
+    gap: 8px
+}
+
+.willow .two label {
+    flex: 1
+}
+
+.willow .detail-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42, 47, 54, 0.35);
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-card {
+    width: min(460px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-card h3 {
+    font-size: 16px;
+}
+
+.modal-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.modal-card input,
+.modal-card select {
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+}
+
+.modal-card input[readonly] {
+    background: var(--bg2);
+    color: var(--muted);
+}
+
+.position-fields[hidden] {
+    display: none;
+}
+
+.deps-fieldset {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 10px;
+}
+
+.deps-fieldset legend {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 0 4px;
+}
+
+.deps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 140px;
+    overflow: auto;
+}
+
+.deps-list label {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.deps-list input {
+    height: auto;
+    width: auto;
+}
+
+.modal-error {
+    color: #b42318;
+    font-size: 12px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.willow .chart {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    position: relative
+}
+
+.willow .grid-head {
+    flex: 0 0 auto;
+    display: flex;
+    height: calc(var(--row));
+    align-items: flex-end;
+    padding: 0 12px 10px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 14px;
+    color: #334155;
+    background: var(--bg2);
+}
+
+.willow .c-name {
+    flex: 1
+}
+
+.willow .grid-row {
+    display: flex;
+    align-items: center;
+    height: var(--row);
+    border-bottom: 1px solid var(--border);
+}
+
+.willow .grid-row .c-name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.willow .grid-row.sel {
+    background: #e6f8f4
+}
+
+#person-list .grid-row:hover {
+    cursor: pointer;
+}
+
+.willow .ind1 {
+    padding-left: 24px
+}
+
+.willow .tog {
+    width: 14px;
+    color: var(--muted);
+    font-size: 10px
+}
+
+.willow .sum {
+    font-weight: 600
+}
+
+/* Let .chart be the only scroller; .gantt-container defaults to overflow:auto. */
+#historix-gantt {
+    min-width: 100%;
+    min-height: 100%;
+    width: max-content
+}
+
+#historix-gantt .gantt-container {
+    overflow: visible;
+    width: auto;
+    border-radius: 0
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 8px
+    }
+
+    .willow {
+        height: auto;
+        min-height: 0;
+        overflow: visible
+    }
+
+    .willow .toolbar {
+        flex-wrap: wrap
+    }
+
+    .willow .toolbar .spacer {
+        flex: 0 0 100%;
+        height: 0
+    }
+
+    .willow .toolbar .select, .willow .toolbar .btn {
+        flex: 1 1 auto
+    }
+
+    .willow .body {
+        flex-direction: column
+    }
+
+    .willow .grid {
+        flex: none;
+        width: 100%;
+        flex-direction: row;
+        border-right: 0;
+        border-bottom: 1px solid var(--border)
+    }
+
+    .willow .grid-top {
+        flex: 1 1 50%;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .willow .grid-bottom {
+        flex: 1 1 50%;
+        min-width: 0;
+        min-height: 0;
+        border-top: 0;
+        border-left: 1px solid var(--border);
+        overflow: hidden;
+    }
+
+    .willow .chart {
+        flex: none;
+        width: 100%;
+        max-height: 60vh
+    }
+}
+
+@media (max-width: 480px) {
+    .willow .btn {
+        padding: 0 8px;
+        font-size: 12px
+    }
+
+    .willow .detail {
+        padding: 8px
+    }
+
+    .willow .two {
+        flex-direction: column
+    }
+}
+
+.person-bar {
+    fill: #1f6bd9 !important;
+    outline: 1px solid #ae44ac !important;
+}
+.position-bar {
+    fill: #00ba94 !important;
+    outline: 1px solid #099f81 !important;
+}
+
+.bar .bar-label {
+    fill: #ffffff;
+}
+
+.path {
+    stroke: #c0c3ce;
+}
+
+.person-path {
+    stroke: #1f6bd9;
+}
+
+.detail-key {
+    color: #334155;
+    font-weight: bold;
+}
